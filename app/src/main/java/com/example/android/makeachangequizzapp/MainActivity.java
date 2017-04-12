@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     String[] questionText = {"Ready to make a change?\\n(Press \"Start\" to begin)", "What do you want to change in your life?",
             "What skills do you need?", "How much time a week are you willing to dedicate?",
             "What days of the week?", "At what hour?", "How will you know when you're ready?",
-            "By what date do you think you'll be ready if you dedicate this time?", "Click on \"Add to Calendar\" to add a reminder" +
+            "By what date do you think you'll be ready if you dedicate this time?", "Click on \"Add to Calendar\" to add a reminder " +
             "to achieve your objective!"};
 
 
@@ -76,16 +76,18 @@ public class MainActivity extends AppCompatActivity {
         displayText(questionTextView, nextQuestionText);
 
         //Get the content of the previous question and hide it
-        if (previousQuestion != 0){
-        String previousAnswerContent = getAnswerContent(previousQuestion);
-        int previousAnswerId = getResources().getIdentifier(previousAnswerContent, "id", this.getPackageName());
-        hideContent (findViewById(previousAnswerId));
-        }
+        if (previousQuestion != 0 && previousQuestion != questionText.length-1){
+            String previousAnswerContent = getAnswerContent(previousQuestion);
+            int previousAnswerId = getResources().getIdentifier(previousAnswerContent, "id", this.getPackageName());
+            hideContent (findViewById(previousAnswerId));
+        };
 
         //Get the content to be shown to the user to answer the question and display it
-        String nextAnswerContent = getAnswerContent(currentQuestion);
-        int answerId = getResources().getIdentifier(nextAnswerContent, "id", this.getPackageName());
-        displayContent (findViewById(answerId));
+        if (currentQuestion != questionText.length-1) {
+            String nextAnswerContent = getAnswerContent(currentQuestion);
+            int answerId = getResources().getIdentifier(nextAnswerContent, "id", this.getPackageName());
+            displayContent(findViewById(answerId));
+        };
 
         //Get which buttons should be displayed at the bottom of the screen see if they are the same ones as before
         // and display new ones if necessary
@@ -137,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
         if (question == 0){
             buttonId = "buttons_section_start";
         }
-        else if(question >= questionText.length){
+        else if(question >= questionText.length-1){
             buttonId = "buttons_section_add_to_calendar";
         }
         else{
