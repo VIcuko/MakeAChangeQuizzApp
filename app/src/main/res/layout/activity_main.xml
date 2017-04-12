@@ -8,12 +8,13 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/button_vertical_margin">
 
         <RelativeLayout
             android:id="@+id/main_content"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <ImageView
                 android:id="@+id/question_image"
@@ -61,10 +62,155 @@
                     android:layout_marginBottom="@dimen/standard_vertical_margin">
 
                     <EditText
+                        android:id="@+id/question_1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="I want to learn programming in Java"
-                        android:inputType="textMultiLine"/>
+                        android:inputType="textMultiLine"
+                        android:visibility="gone"/>
+
+                    <LinearLayout
+                        android:id="@+id/question_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <EditText
+                            android:id="@+id/skill1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Program in Java"
+                            android:inputType="text" />
+
+                        <EditText
+                            android:id="@+id/skill2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Done a couple of projects"
+                            android:inputType="text" />
+                    </LinearLayout>
+
+                    <RadioGroup
+                        android:id="@+id/question_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:checkedButton="@id/r2"
+                        android:visibility="gone">
+
+                        <RadioButton
+                            android:id="@+id/r2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/hours_option1" />
+
+                        <RadioButton
+                            android:id="@+id/r4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/hours_option2"/>
+
+                        <RadioButton
+                            android:id="@+id/r6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/hours_option3"/>
+
+                        <RadioButton
+                            android:id="@+id/r8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/hours_option4"/>
+
+                        <RadioButton
+                            android:id="@+id/r10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/hours_option5"/>
+
+                    </RadioGroup>
+
+                    <LinearLayout
+                        android:id="@+id/question_4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <CheckBox
+                            android:id="@+id/weekday_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="16dp"
+                            android:text="@string/weekday_1"/>
+
+                        <CheckBox
+                            android:id="@+id/weekday_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="16dp"
+                            android:text="@string/weekday_2"/>
+
+                        <CheckBox
+                            android:id="@+id/weekday_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="16dp"
+                            android:text="@string/weekday_3"/>
+
+                        <CheckBox
+                            android:id="@+id/weekday_4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="16dp"
+                            android:text="@string/weekday_4"/>
+
+                        <CheckBox
+                            android:id="@+id/weekday_5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="16dp"
+                            android:text="@string/weekday_5"/>
+
+                        <CheckBox
+                            android:id="@+id/weekday_6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="16dp"
+                            android:text="@string/weekday_6"/>
+
+                        <CheckBox
+                            android:id="@+id/weekday_7"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="16dp"
+                            android:text="@string/weekday_7"/>
+
+                    </LinearLayout>
+
+                    <TimePicker
+                        android:id="@+id/question_5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:timePickerMode="spinner"
+                        android:layout_gravity="center"
+                        android:visibility="gone"/>
+
+                    <EditText
+                        android:id="@+id/question_6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="When I can create my own app"
+                        android:inputType="textMultiLine"
+                        android:visibility="gone"/>
+
+                    <DatePicker
+                        android:id="@+id/question_7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:calendarViewShown="false"
+                        android:headerBackground="#64DD17"
+                        android:visibility="gone"/>
 
                 </LinearLayout>
 
@@ -81,18 +227,20 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/button_previous"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Previous"/>
-        <!--android:onClick="previousQuestion"/>-->
+            android:text="Previous"
+            android:onClick="previousQuestion"/>
 
         <Button
+            android:id="@+id/button_next"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Next"/>
-        <!--android:onClick="nextQuestion"/>-->
+            android:text="Next"
+            android:onClick="nextQuestion"/>
 
     </LinearLayout>
 

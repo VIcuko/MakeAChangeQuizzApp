@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">MakeAChangeQuizzApp</string>
+    <string name="weekday_1">Monday</string>
+    <string name="weekday_2">Tuesday</string>
+    <string name="weekday_3">Wednesday</string>
+    <string name="weekday_4">Thursday</string>
+    <string name="weekday_5">Friday</string>
+    <string name="weekday_6">Saturday</string>
+    <string name="weekday_7">Sunday</string>
+    <string name="hours_option1">2 hours</string>
+    <string name="hours_option2">4 hours</string>
+    <string name="hours_option3">6 hours</string>
+    <string name="hours_option4">8 hours</string>
+    <string name="hours_option5">10 hours</string>
 </resources>
