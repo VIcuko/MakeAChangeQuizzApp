@@ -17,9 +17,6 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
-
-import static android.os.Build.VERSION_CODES.M;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -81,6 +78,9 @@ public class MainActivity extends AppCompatActivity {
         previousQuestion -= 1;
     };
 
+    /**
+     * This method calls other methods to update the screen step by step
+     */
     public void updateScreen(){
         //Get the next question number to be displayed and display it
         String nextQuestionNumberText = getQuestionNumberText();
@@ -116,6 +116,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * This method gets the text to be displayed in the field with id question_number
+     * @return the text to be displayed
+     */
     public String getQuestionNumberText() {
         String questionNumberText= initialQuestionNumberText;
 
@@ -128,27 +132,54 @@ public class MainActivity extends AppCompatActivity {
         return questionNumberText;
     };
 
+    /**
+     * This method gets the text to be displayed in the field with id question_text
+     * @return the text to be displayed
+     */
     public String getQuestion(){
         return questionText[currentQuestion];
     };
 
+    /**
+     * This method displays the text received in the indicated TextView
+     * @param textview to display the text
+     * @param text text to be displayed in the TextView
+     */
     public void displayText(TextView textview, String text) {
         textview.setText(text);
     }
 
+    /**
+     * This method retrieves the id to be used of the indicated answer possible content displayed
+     * @param question the number of the indicated question
+     * @return returns the id string for the indicated answer field being displayed
+     */
     public String getAnswerContent(int question){
         String answerId = "answer_"+question;
         return answerId;
     }
 
+    /**
+     * Makes an element of the layout become visible for the user
+     * @param answerContent is the indicated view to become visible
+     */
     public void displayContent(View answerContent){
         answerContent.setVisibility(View.VISIBLE);
         };
 
+    /**
+     * Makes an element of the layout become gone for the user
+     * @param answerContent is the indicated view to become gone
+     */
     public void hideContent(View answerContent){
         answerContent.setVisibility(View.GONE);
     };
 
+    /**
+     * This method retrieves the id for the buttons to be used on the displayed screen
+     * @param question indicates the number of the question that is going to be displayed
+     * @return returns the id of the button to be displayed
+     */
     public String getButtons(int question){
         String buttonId;
         if (question == 0){
@@ -163,10 +194,19 @@ public class MainActivity extends AppCompatActivity {
         return buttonId;
     };
 
+    /**
+     * This method calls a method to retrieve all the user's answers and then calls the method to create a calendar intent
+     * @param view
+     */
     public void addToCalendar(View view) {
         ArrayList userAnswers = getUserAnswers();
         addEventToCalendar(userAnswers);
     };
+
+    /**
+     * This method retrieves all of the user answers into an ArrayList
+     * @return an ArrayList with all of the user's answers
+     */
 
     public ArrayList getUserAnswers (){
         ArrayList userAnswers = new ArrayList();
@@ -199,22 +239,18 @@ public class MainActivity extends AppCompatActivity {
         int answer5_minutes = ((TimePicker) findViewById(R.id.answer_5)).getMinute();
         answer5.add(answer5_minutes);
         SimpleDateFormat answer5b;
-        //        String answer5 = String.format("%02d%02d", answer5_hours, answer5_minutes);
 
         userAnswers.add(answer5);
 
         String answer6 = ((EditText) findViewById(R.id.answer_6)).getText().toString();
         userAnswers.add(answer6);
 
-//        ArrayList answer7 = new ArrayList();
         int answer7_day = ((DatePicker) findViewById(R.id.answer_7)).getDayOfMonth();
-//        answer7.add(answer7_day);
 
         int answer7_month = ((DatePicker) findViewById(R.id.answer_7)).getMonth();
-//        answer7.add(answer7_month);
 
         int answer7_year = ((DatePicker) findViewById(R.id.answer_7)).getYear();
-//        answer7.add(answer7_year);
+
         String answer7 = answer7_day+"-"+answer7_month+"-"+answer7_year;
 
         userAnswers.add(answer7);
@@ -222,6 +258,10 @@ public class MainActivity extends AppCompatActivity {
         return userAnswers;
     };
 
+    /**
+     * This method creates an Intent with the user's answers to open up in the calendar
+     * @param userAnswers ArrayList with user's answers
+     */
     public void addEventToCalendar(ArrayList userAnswers){
         Calendar c = Calendar.getInstance();
         System.out.println("Current time => " + c.getTime());
