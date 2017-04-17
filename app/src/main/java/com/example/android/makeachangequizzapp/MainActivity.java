@@ -20,22 +20,19 @@ import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
 
-    int currentQuestion = 0;
-    int previousQuestion = 0;
+    private int currentQuestion = 0;
+    private int previousQuestion = 0;
 
-    String initialQuestionNumberText = "Welcome to the Next Change in your Life";
+    private String initialQuestionNumberText = "Welcome to the Next Change in your Life";
 
-    String[] questionText = {"Ready to make a change?\\n(Press \"Start\" to begin)", "What do you want to change in your life?",
+    private String[] questionText = {"Ready to make a change?\\n(Press \"Start\" to begin)", "What do you want to change in your life?",
             "What skills do you need?", "How much time a week are you willing to dedicate?",
             "What days of the week?", "At what hour?", "How will you know when you're ready?",
             "By what date do you think you'll be ready if you dedicate this time?", "Click on \"Add to Calendar\" to add a reminder " +
             "to achieve your objective!"};
 
-
-    ArrayList answersContent;
-
-    TextView questionNumberView;
-    TextView questionTextView;
+    private TextView questionNumberView;
+    private TextView questionTextView;
 
 
     public void onCreate(Bundle savedInstanceState) {
