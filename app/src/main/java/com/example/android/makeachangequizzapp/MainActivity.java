@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     TextView questionTextView;
 
 
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         questionNumberView = (TextView) findViewById(R.id.question_number);
@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * This method calls other methods to update the screen step by step
      */
-    public void updateScreen(){
+    private void updateScreen(){
         //Get the next question number to be displayed and display it
         String nextQuestionNumberText = getQuestionNumberText();
         displayText (questionNumberView, nextQuestionNumberText);
@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
      * This method gets the text to be displayed in the field with id question_number
      * @return the text to be displayed
      */
-    public String getQuestionNumberText() {
+    private String getQuestionNumberText() {
         String questionNumberText= initialQuestionNumberText;
 
         if (currentQuestion == questionText.length-1){
@@ -136,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
      * This method gets the text to be displayed in the field with id question_text
      * @return the text to be displayed
      */
-    public String getQuestion(){
+    private String getQuestion(){
         return questionText[currentQuestion];
     };
 
@@ -145,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
      * @param textview to display the text
      * @param text text to be displayed in the TextView
      */
-    public void displayText(TextView textview, String text) {
+    private void displayText(TextView textview, String text) {
         textview.setText(text);
     }
 
@@ -154,7 +154,7 @@ public class MainActivity extends AppCompatActivity {
      * @param question the number of the indicated question
      * @return returns the id string for the indicated answer field being displayed
      */
-    public String getAnswerContent(int question){
+    private String getAnswerContent(int question){
         String answerId = "answer_"+question;
         return answerId;
     }
@@ -163,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
      * Makes an element of the layout become visible for the user
      * @param answerContent is the indicated view to become visible
      */
-    public void displayContent(View answerContent){
+    private void displayContent(View answerContent){
         answerContent.setVisibility(View.VISIBLE);
         };
 
@@ -171,7 +171,7 @@ public class MainActivity extends AppCompatActivity {
      * Makes an element of the layout become gone for the user
      * @param answerContent is the indicated view to become gone
      */
-    public void hideContent(View answerContent){
+    private void hideContent(View answerContent){
         answerContent.setVisibility(View.GONE);
     };
 
@@ -180,7 +180,7 @@ public class MainActivity extends AppCompatActivity {
      * @param question indicates the number of the question that is going to be displayed
      * @return returns the id of the button to be displayed
      */
-    public String getButtons(int question){
+    private String getButtons(int question){
         String buttonId;
         if (question == 0){
             buttonId = "buttons_section_start";
@@ -208,7 +208,7 @@ public class MainActivity extends AppCompatActivity {
      * @return an ArrayList with all of the user's answers
      */
 
-    public ArrayList getUserAnswers (){
+    private ArrayList getUserAnswers (){
         ArrayList userAnswers = new ArrayList();
 
         String answer1 = ((EditText) findViewById(R.id.answer_1_text)).getText().toString();
@@ -262,7 +262,7 @@ public class MainActivity extends AppCompatActivity {
      * This method creates an Intent with the user's answers to open up in the calendar
      * @param userAnswers ArrayList with user's answers
      */
-    public void addEventToCalendar(ArrayList userAnswers){
+    private void addEventToCalendar(ArrayList userAnswers){
         Calendar c = Calendar.getInstance();
         System.out.println("Current time => " + c.getTime());
 
