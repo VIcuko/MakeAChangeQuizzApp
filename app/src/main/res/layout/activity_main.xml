@@ -99,7 +99,7 @@
                         android:id="@+id/answer_3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:checkedButton="@+id/r2"
+                        android:checkedButton="@+id/hours2"
                         android:visibility="gone">
 
                         <RadioButton
