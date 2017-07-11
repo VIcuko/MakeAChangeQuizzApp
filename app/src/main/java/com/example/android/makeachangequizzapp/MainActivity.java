@@ -57,7 +57,9 @@ public class MainActivity extends AppCompatActivity {
         currentQuestion += 1;
         updateScreen();
         previousQuestion += 1;
-    };
+    }
+
+    ;
 
     /**
      * This method returns the user to the previous question when clicking on button
@@ -73,74 +75,84 @@ public class MainActivity extends AppCompatActivity {
         currentQuestion -= 1;
         updateScreen();
         previousQuestion -= 1;
-    };
+    }
+
+    ;
 
     /**
      * This method calls other methods to update the screen step by step
      */
-    private void updateScreen(){
+    private void updateScreen() {
         //Get the next question number to be displayed and display it
         String nextQuestionNumberText = getQuestionNumberText();
-        displayText (questionNumberView, nextQuestionNumberText);
+        displayText(questionNumberView, nextQuestionNumberText);
 
         //Get the next question to be displayed and display it
         String nextQuestionText = getQuestion();
         displayText(questionTextView, nextQuestionText);
 
         //Get the content of the previous question and hide it
-        if (previousQuestion != 0 && previousQuestion != questionText.length-1){
+        if (previousQuestion != 0 && previousQuestion != questionText.length - 1) {
             String previousAnswerContent = getAnswerContent(previousQuestion);
             int previousAnswerId = getResources().getIdentifier(previousAnswerContent, "id", this.getPackageName());
-            hideContent (findViewById(previousAnswerId));
-        };
+            hideContent(findViewById(previousAnswerId));
+        }
+        ;
 
         //Get the content to be shown to the user to answer the question and display it
-        if (currentQuestion != questionText.length-1) {
+        if (currentQuestion != questionText.length - 1) {
             String nextAnswerContent = getAnswerContent(currentQuestion);
             int answerId = getResources().getIdentifier(nextAnswerContent, "id", this.getPackageName());
             displayContent(findViewById(answerId));
-        };
+        }
+        ;
 
         //Get which buttons should be displayed at the bottom of the screen see if they are the same ones as before
         // and display new ones if necessary
         String nextButtonContent = getButtons(currentQuestion);
         String previousButtonContent = getButtons(previousQuestion);
-        if (nextButtonContent != previousButtonContent){
+        if (nextButtonContent != previousButtonContent) {
             int previousButtonId = getResources().getIdentifier(previousButtonContent, "id", this.getPackageName());
-            hideContent (findViewById(previousButtonId));
+            hideContent(findViewById(previousButtonId));
             int buttonId = getResources().getIdentifier(nextButtonContent, "id", this.getPackageName());
-            displayContent (findViewById(buttonId));
+            displayContent(findViewById(buttonId));
         }
     }
 
     /**
      * This method gets the text to be displayed in the field with id question_number
+     *
      * @return the text to be displayed
      */
     private String getQuestionNumberText() {
-        String questionNumberText= initialQuestionNumberText;
+        String questionNumberText = initialQuestionNumberText;
 
-        if (currentQuestion == questionText.length-1){
+        if (currentQuestion == questionText.length - 1) {
             questionNumberText = "Congratulations!";
-        }
-        else if (currentQuestion != 0) {
+        } else if (currentQuestion != 0) {
             questionNumberText = "Question " + currentQuestion;
         }
         return questionNumberText;
-    };
+    }
+
+    ;
 
     /**
      * This method gets the text to be displayed in the field with id question_text
+     *
      * @return the text to be displayed
      */
-    private String getQuestion(){
+    private String getQuestion() {
         return questionText[currentQuestion];
-    };
+    }
+
+    ;
 
     /**
      * This method displays the text received in the indicated TextView
+     *
      * @param textview to display the text
-     * @param text text to be displayed in the TextView
+     * @param text     text to be displayed in the TextView
      */
     private void displayText(TextView textview, String text) {
         textview.setText(text);
@@ -148,64 +160,76 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * This method retrieves the id to be used of the indicated answer possible content displayed
+     *
      * @param question the number of the indicated question
      * @return returns the id string for the indicated answer field being displayed
      */
-    private String getAnswerContent(int question){
-        String answerId = "answer_"+question;
+    private String getAnswerContent(int question) {
+        String answerId = "answer_" + question;
         return answerId;
     }
 
     /**
      * Makes an element of the layout become visible for the user
+     *
      * @param answerContent is the indicated view to become visible
      */
-    private void displayContent(View answerContent){
+    private void displayContent(View answerContent) {
         answerContent.setVisibility(View.VISIBLE);
-        };
+    }
+
+    ;
 
     /**
      * Makes an element of the layout become gone for the user
+     *
      * @param answerContent is the indicated view to become gone
      */
-    private void hideContent(View answerContent){
+    private void hideContent(View answerContent) {
         answerContent.setVisibility(View.GONE);
-    };
+    }
+
+    ;
 
     /**
      * This method retrieves the id for the buttons to be used on the displayed screen
+     *
      * @param question indicates the number of the question that is going to be displayed
      * @return returns the id of the button to be displayed
      */
-    private String getButtons(int question){
+    private String getButtons(int question) {
         String buttonId;
-        if (question == 0){
+        if (question == 0) {
             buttonId = "buttons_section_start";
-        }
-        else if(question >= questionText.length-1){
+        } else if (question >= questionText.length - 1) {
             buttonId = "buttons_section_add_to_calendar";
-        }
-        else{
+        } else {
             buttonId = "buttons_section_process";
         }
         return buttonId;
-    };
+    }
+
+    ;
 
     /**
      * This method calls a method to retrieve all the user's answers and then calls the method to create a calendar intent
+     *
      * @param view
      */
     public void addToCalendar(View view) {
         ArrayList userAnswers = getUserAnswers();
         addEventToCalendar(userAnswers);
-    };
+    }
+
+    ;
 
     /**
      * This method retrieves all of the user answers into an ArrayList
+     *
      * @return an ArrayList with all of the user's answers
      */
 
-    private ArrayList getUserAnswers (){
+    private ArrayList getUserAnswers() {
         ArrayList userAnswers = new ArrayList();
 
         String answer1 = ((EditText) findViewById(R.id.answer_1_text)).getText().toString();
@@ -220,11 +244,11 @@ public class MainActivity extends AppCompatActivity {
 
         int answer4 = 0;
         String weekdayContent;
-        for (int i=1;i<=7;i++){
-            weekdayContent = "weekday_"+i;
+        for (int i = 1; i <= 7; i++) {
+            weekdayContent = "weekday_" + i;
             int weekdayId = getResources().getIdentifier(weekdayContent, "id", this.getPackageName());
-            if (((CheckBox) findViewById(weekdayId)).isChecked()){
-                answer4+=1;
+            if (((CheckBox) findViewById(weekdayId)).isChecked()) {
+                answer4 += 1;
             }
         }
         userAnswers.add(answer4);
@@ -248,18 +272,21 @@ public class MainActivity extends AppCompatActivity {
 
         int answer7_year = ((DatePicker) findViewById(R.id.answer_7)).getYear();
 
-        String answer7 = answer7_day+"-"+answer7_month+"-"+answer7_year;
+        String answer7 = answer7_day + "-" + answer7_month + "-" + answer7_year;
 
         userAnswers.add(answer7);
 
         return userAnswers;
-    };
+    }
+
+    ;
 
     /**
      * This method creates an Intent with the user's answers to open up in the calendar
+     *
      * @param userAnswers ArrayList with user's answers
      */
-    private void addEventToCalendar(ArrayList userAnswers){
+    private void addEventToCalendar(ArrayList userAnswers) {
         Calendar c = Calendar.getInstance();
         System.out.println("Current time => " + c.getTime());
 
@@ -268,17 +295,19 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = new Intent(Intent.ACTION_INSERT)
                 .setData(CalendarContract.Events.CONTENT_URI)
-                .putExtra(CalendarContract.Events.RRULE,"FREQ=DAILY;INTERVAL="+(7-Integer.parseInt(userAnswers.get(3).toString()))+";UNTIL="+userAnswers.get(6).toString())
+                .putExtra(CalendarContract.Events.RRULE, "FREQ=DAILY;INTERVAL=" + (7 - Integer.parseInt(userAnswers.get(3).toString())) + ";UNTIL=" + userAnswers.get(6).toString())
                 .putExtra(CalendarContract.Events.TITLE, userAnswers.get(0).toString())
                 .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, formattedDate)
                 .putExtra(CalendarContract.EXTRA_EVENT_END_TIME, userAnswers.get(6).toString())
-                .putExtra(CalendarContract.Events.HAS_ALARM,true)
-                .putExtra(CalendarContract.Events.DURATION,userAnswers.get(2).toString())
-                .putExtra(CalendarContract.Events.DESCRIPTION,userAnswers.get(1).toString()+"."+userAnswers.get(5).toString());
+                .putExtra(CalendarContract.Events.HAS_ALARM, true)
+                .putExtra(CalendarContract.Events.DURATION, userAnswers.get(2).toString())
+                .putExtra(CalendarContract.Events.DESCRIPTION, userAnswers.get(1).toString() + "." + userAnswers.get(5).toString());
 
 
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
         }
-    };
+    }
+
+    ;
 };

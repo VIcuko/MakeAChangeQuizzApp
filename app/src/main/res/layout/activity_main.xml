@@ -25,24 +25,24 @@
 
             <LinearLayout
                 android:id="@+id/question_group"
-                android:layout_below="@id/question_image"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="@dimen/standard_vertical_margin"
+                android:layout_below="@id/question_image"
                 android:layout_marginBottom="@dimen/standard_vertical_margin"
                 android:layout_marginLeft="@dimen/standard_vertical_margin"
-                android:layout_marginRight="@dimen/standard_vertical_margin">
+                android:layout_marginRight="@dimen/standard_vertical_margin"
+                android:layout_marginTop="@dimen/standard_vertical_margin"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/question_number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="36sp"
-                    android:textAlignment="center"
                     android:text="Welcome to the Next Change in your Life"
-                    android:textStyle="bold"
-                    android:textColor="@android:color/black"/>
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="36sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/question_text"
@@ -51,17 +51,17 @@
                     android:layout_marginTop="@dimen/standard_vertical_margin"
                     android:text="Ready to make a change?\n(Press Start to begin)"
                     android:textAlignment="center"
+                    android:textColor="@android:color/black"
                     android:textSize="24sp"
-                    android:textStyle="italic"
-                    android:textColor="@android:color/black"/>
+                    android:textStyle="italic" />
 
                 <LinearLayout
                     android:id="@+id/question_content"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
+                    android:layout_marginBottom="@dimen/standard_vertical_margin"
                     android:layout_marginTop="@dimen/standard_vertical_margin"
-                    android:layout_marginBottom="@dimen/standard_vertical_margin">
+                    android:orientation="vertical">
 
                     <LinearLayout
                         android:id="@+id/answer_1"
@@ -70,12 +70,12 @@
                         android:orientation="vertical"
                         android:visibility="gone">
 
-                    <EditText
-                        android:id="@+id/answer_1_text"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="I want to learn programming in Java"
-                        android:inputType="textMultiLine" />
+                        <EditText
+                            android:id="@+id/answer_1_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="I want to learn programming in Java"
+                            android:inputType="textMultiLine" />
 
                     </LinearLayout>
 
@@ -112,25 +112,25 @@
                             android:id="@+id/hours4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/hours_option2"/>
+                            android:text="@string/hours_option2" />
 
                         <RadioButton
                             android:id="@+id/hours6"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/hours_option3"/>
+                            android:text="@string/hours_option3" />
 
                         <RadioButton
                             android:id="@+id/hours8"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/hours_option4"/>
+                            android:text="@string/hours_option4" />
 
                         <RadioButton
                             android:id="@+id/hours10"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/hours_option5"/>
+                            android:text="@string/hours_option5" />
 
                     </RadioGroup>
 
@@ -146,49 +146,49 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:paddingLeft="16dp"
-                            android:text="@string/weekday_1"/>
+                            android:text="@string/weekday_1" />
 
                         <CheckBox
                             android:id="@+id/weekday_2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:paddingLeft="16dp"
-                            android:text="@string/weekday_2"/>
+                            android:text="@string/weekday_2" />
 
                         <CheckBox
                             android:id="@+id/weekday_3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:paddingLeft="16dp"
-                            android:text="@string/weekday_3"/>
+                            android:text="@string/weekday_3" />
 
                         <CheckBox
                             android:id="@+id/weekday_4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:paddingLeft="16dp"
-                            android:text="@string/weekday_4"/>
+                            android:text="@string/weekday_4" />
 
                         <CheckBox
                             android:id="@+id/weekday_5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:paddingLeft="16dp"
-                            android:text="@string/weekday_5"/>
+                            android:text="@string/weekday_5" />
 
                         <CheckBox
                             android:id="@+id/weekday_6"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:paddingLeft="16dp"
-                            android:text="@string/weekday_6"/>
+                            android:text="@string/weekday_6" />
 
                         <CheckBox
                             android:id="@+id/weekday_7"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:paddingLeft="16dp"
-                            android:text="@string/weekday_7"/>
+                            android:text="@string/weekday_7" />
 
                     </LinearLayout>
 
@@ -196,9 +196,9 @@
                         android:id="@+id/answer_5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:timePickerMode="spinner"
                         android:layout_gravity="center"
-                        android:visibility="gone"/>
+                        android:timePickerMode="spinner"
+                        android:visibility="gone" />
 
                     <EditText
                         android:id="@+id/answer_6"
@@ -206,7 +206,7 @@
                         android:layout_height="wrap_content"
                         android:hint="When I can create my own app"
                         android:inputType="textMultiLine"
-                        android:visibility="gone"/>
+                        android:visibility="gone" />
 
                     <DatePicker
                         android:id="@+id/answer_7"
@@ -214,7 +214,7 @@
                         android:layout_height="wrap_content"
                         android:calendarViewShown="false"
                         android:headerBackground="#7cb342"
-                        android:visibility="gone"/>
+                        android:visibility="gone" />
 
                 </LinearLayout>
 
@@ -225,9 +225,9 @@
 
     <LinearLayout
         android:id="@+id/buttons_section_start"
-        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:orientation="horizontal"
         android:visibility="visible">
 
@@ -235,16 +235,16 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Start"
-            android:onClick="nextQuestion"/>
+            android:onClick="nextQuestion"
+            android:text="Start" />
 
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/buttons_section_process"
-        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:orientation="horizontal"
         android:visibility="gone">
 
@@ -252,23 +252,23 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Previous"
-            android:onClick="previousQuestion"/>
+            android:onClick="previousQuestion"
+            android:text="Previous" />
 
         <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Next"
-            android:onClick="nextQuestion"/>
+            android:onClick="nextQuestion"
+            android:text="Next" />
 
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/buttons_section_add_to_calendar"
-        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:orientation="horizontal"
         android:visibility="gone">
 
@@ -276,8 +276,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Add to Calendar"
-            android:onClick="addToCalendar"/>
+            android:onClick="addToCalendar"
+            android:text="Add to Calendar" />
 
     </LinearLayout>
 
