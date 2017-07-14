@@ -17,30 +17,41 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     private int currentQuestion;
     private int previousQuestion;
-
-    private String initialQuestionNumberText = getString(R.string.initial_text);
-
-    private String[] questionText = {getString(R.string.intro), getString(R.string.question1),
-            getString(R.string.question2),getString(R.string.question3),
-            getString(R.string.question4), getString(R.string.question5), getString(R.string.question6),
-            getString(R.string.question7),getString(R.string.calendar_click)};
+    private String initialQuestionNumberText;
+    private ArrayList<String> questionText = new ArrayList<String>();
 
     private TextView questionNumberView;
     private TextView questionTextView;
 
 
     public void onCreate(Bundle savedInstanceState) {
+        initialQuestionNumberText = getString(R.string.initial_text);
+        questionText = addContent(questionText);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         questionNumberView = (TextView) findViewById(R.id.question_number);
         questionTextView = (TextView) findViewById(R.id.question_text);
     }
 
+
+    public ArrayList<String> addContent(ArrayList<String> questions_array){
+        String[] testQuestions = {getString(R.string.intro), getString(R.string.question1),
+        getString(R.string.question2),getString(R.string.question3),
+        getString(R.string.question4), getString(R.string.question5), getString(R.string.question6),
+        getString(R.string.question7),getString(R.string.calendar_click)};
+
+        for (String text : testQuestions){
+            questions_array.add(text);
+        }
+        return questions_array;
+    }
 
     /**
      * This method moves the user to the next question when clicking on button
@@ -49,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
      */
 
     public void nextQuestion(View view) {
-        if (currentQuestion >= questionText.length - 1) {
+        if (currentQuestion >= questionText.size() - 1) {
             Toast.makeText(this, getString(R.string.no_more_questions_toast), Toast.LENGTH_SHORT).show();
             return;
         }
@@ -57,8 +68,6 @@ public class MainActivity extends AppCompatActivity {
         updateScreen();
         previousQuestion += 1;
     }
-
-    ;
 
     /**
      * This method returns the user to the previous question when clicking on button
@@ -76,8 +85,6 @@ public class MainActivity extends AppCompatActivity {
         previousQuestion -= 1;
     }
 
-    ;
-
     /**
      * This method calls other methods to update the screen step by step
      */
@@ -91,20 +98,20 @@ public class MainActivity extends AppCompatActivity {
         displayText(questionTextView, nextQuestionText);
 
         //Get the content of the previous question and hide it
-        if (previousQuestion != 0 && previousQuestion != questionText.length - 1) {
+        if (previousQuestion != 0 && previousQuestion != questionText.size() - 1) {
             String previousAnswerContent = getAnswerContent(previousQuestion);
             int previousAnswerId = getResources().getIdentifier(previousAnswerContent, "id", this.getPackageName());
             hideContent(findViewById(previousAnswerId));
         }
-        ;
+
 
         //Get the content to be shown to the user to answer the question and display it
-        if (currentQuestion != questionText.length - 1) {
+        if (currentQuestion != questionText.size() - 1) {
             String nextAnswerContent = getAnswerContent(currentQuestion);
             int answerId = getResources().getIdentifier(nextAnswerContent, "id", this.getPackageName());
             displayContent(findViewById(answerId));
         }
-        ;
+
 
         //Get which buttons should be displayed at the bottom of the screen see if they are the same ones as before
         // and display new ones if necessary
@@ -126,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
     private String getQuestionNumberText() {
         String questionNumberText = initialQuestionNumberText;
 
-        if (currentQuestion == questionText.length - 1) {
+        if (currentQuestion == questionText.size() - 1) {
             questionNumberText = getString(R.string.congrats_text);
         } else if (currentQuestion != 0) {
             questionNumberText = getString(R.string.question_text) + currentQuestion;
@@ -134,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
         return questionNumberText;
     }
 
-    ;
+
 
     /**
      * This method gets the text to be displayed in the field with id question_text
@@ -142,10 +149,10 @@ public class MainActivity extends AppCompatActivity {
      * @return the text to be displayed
      */
     private String getQuestion() {
-        return questionText[currentQuestion];
+        return questionText.get(currentQuestion);
     }
 
-    ;
+
 
     /**
      * This method displays the text received in the indicated TextView
@@ -177,8 +184,6 @@ public class MainActivity extends AppCompatActivity {
         answerContent.setVisibility(View.VISIBLE);
     }
 
-    ;
-
     /**
      * Makes an element of the layout become gone for the user
      *
@@ -187,8 +192,6 @@ public class MainActivity extends AppCompatActivity {
     private void hideContent(View answerContent) {
         answerContent.setVisibility(View.GONE);
     }
-
-    ;
 
     /**
      * This method retrieves the id for the buttons to be used on the displayed screen
@@ -200,15 +203,13 @@ public class MainActivity extends AppCompatActivity {
         String buttonId;
         if (question == 0) {
             buttonId = "buttons_section_start";
-        } else if (question >= questionText.length - 1) {
+        } else if (question >= questionText.size() - 1) {
             buttonId = "buttons_section_add_to_calendar";
         } else {
             buttonId = "buttons_section_process";
         }
         return buttonId;
     }
-
-    ;
 
     /**
      * This method calls a method to retrieve all the user's answers and then calls the method to create a calendar intent
@@ -219,8 +220,6 @@ public class MainActivity extends AppCompatActivity {
         ArrayList userAnswers = getUserAnswers();
         addEventToCalendar(userAnswers);
     }
-
-    ;
 
     /**
      * This method retrieves all of the user answers into an ArrayList
@@ -278,8 +277,6 @@ public class MainActivity extends AppCompatActivity {
         return userAnswers;
     }
 
-    ;
-
     /**
      * This method creates an Intent with the user's answers to open up in the calendar
      *
@@ -307,6 +304,4 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         }
     }
-
-    ;
-};
+}
