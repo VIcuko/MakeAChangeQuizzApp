@@ -20,12 +20,21 @@
     <string name="intro">Ready to make a change?\\n(Press \"Start\" to begin)</string>
 
     <string name="question1">What do you want to change in your life?</string>
+    <string name="question1_hint">I want to learn programming in Java</string>
     <string name="question2">What skills do you need?</string>
+    <string name="question2_hint">Program in Java</string>
     <string name="question3">How much time a week are you willing to dedicate?</string>
     <string name="question4">What days of the week?</string>
     <string name="question5">At what hour?</string>
     <string name="question6">How will you know when you\'re ready?</string>
+    <string name="question6_hint">When I can create my own app</string>
     <string name="question7">By what date do you think you\'ll be ready if you dedicate this time?</string>
+
+    <string name="start_button">Start</string>
+    <string name="next_button">Next</string>
+    <string name="previous_button">Previous</string>
+    <string name="add_to_calendar_button">Add to Calendar</string>
+
     <string name="calendar_click">Click on \"Add to Calendar\" to add a reminder to achieve your objective!</string>
 
     <string name="congrats_text">Congratulations!</string>

@@ -38,7 +38,7 @@
                     android:id="@+id/question_number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Welcome to the Next Change in your Life"
+                    android:text="@string/initial_text"
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
                     android:textSize="36sp"
@@ -49,7 +49,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/standard_vertical_margin"
-                    android:text="Ready to make a change?\n(Press Start to begin)"
+                    android:text="@string/intro"
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
                     android:textSize="24sp"
@@ -74,7 +74,7 @@
                             android:id="@+id/answer_1_text"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="I want to learn programming in Java"
+                            android:hint="@string/question1_hint"
                             android:inputType="textMultiLine" />
 
                     </LinearLayout>
@@ -90,7 +90,7 @@
                             android:id="@+id/answer_2_text"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Program in Java"
+                            android:hint="@string/question2_hint"
                             android:inputType="text" />
 
                     </LinearLayout>
@@ -204,7 +204,7 @@
                         android:id="@+id/answer_6"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="When I can create my own app"
+                        android:hint="@string/question6_hint"
                         android:inputType="textMultiLine"
                         android:visibility="gone" />
 
@@ -236,7 +236,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="nextQuestion"
-            android:text="Start" />
+            android:text="@string/start_button" />
 
     </LinearLayout>
 
@@ -253,14 +253,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="previousQuestion"
-            android:text="Previous" />
+            android:text="@string/previous_button" />
 
         <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="nextQuestion"
-            android:text="Next" />
+            android:text="@string/next_button" />
 
     </LinearLayout>
 
@@ -277,7 +277,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="addToCalendar"
-            android:text="Add to Calendar" />
+            android:text="@string/add_to_calendar_button" />
 
     </LinearLayout>
 
