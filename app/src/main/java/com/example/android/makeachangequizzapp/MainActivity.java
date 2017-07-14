@@ -5,6 +5,7 @@ import android.icu.text.SimpleDateFormat;
 import android.os.Bundle;
 import android.provider.CalendarContract;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
@@ -40,8 +41,13 @@ public class MainActivity extends AppCompatActivity {
         questionTextView = (TextView) findViewById(R.id.question_text);
     }
 
+    /**
+     * This method informs the array of questions that are going to be shown to the user
+     * @param questions_array
+     * @return
+     */
 
-    public ArrayList<String> addContent(ArrayList<String> questions_array){
+    private ArrayList<String> addContent(ArrayList<String> questions_array){
         String[] testQuestions = {getString(R.string.intro), getString(R.string.question1),
         getString(R.string.question2),getString(R.string.question3),
         getString(R.string.question4), getString(R.string.question5), getString(R.string.question6),
@@ -135,6 +141,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (currentQuestion == questionText.size() - 1) {
             questionNumberText = getString(R.string.congrats_text);
+            showResult();
         } else if (currentQuestion != 0) {
             questionNumberText = getString(R.string.question_text) + currentQuestion;
         }
@@ -211,6 +218,23 @@ public class MainActivity extends AppCompatActivity {
         return buttonId;
     }
 
+    private void showResult(){
+        ArrayList userAnswers = getUserAnswers();
+        int obtainedPoints = calculateObtainedPoints(userAnswers);
+        int answeredQuestions = obtainedPoints;
+        Toast.makeText(this, "For answering " + answeredQuestions + " questions, you have obtained: " + obtainedPoints + " points!" , Toast.LENGTH_LONG).show();
+        return;
+    }
+
+    private int calculateObtainedPoints(ArrayList userAnswers){
+        int result = 0;
+        for (Object answer : userAnswers){
+            if (!TextUtils.isEmpty(answer.toString())){
+                result +=1;
+            }
+        }
+        return result;
+    }
     /**
      * This method calls a method to retrieve all the user's answers and then calls the method to create a calendar intent
      *
