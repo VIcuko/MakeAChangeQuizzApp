@@ -20,8 +20,8 @@ import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
 
-    private int currentQuestion = 0;
-    private int previousQuestion = 0;
+    private int currentQuestion;
+    private int previousQuestion;
 
     private String initialQuestionNumberText = "Welcome to the Next Change in your Life";
 
@@ -242,7 +242,7 @@ public class MainActivity extends AppCompatActivity {
         String answer3 = ((RadioButton) findViewById(selectedRadioButton)).getText().toString();
         userAnswers.add(answer3.split("")[0]);
 
-        int answer4 = 0;
+        int answer4;
         String weekdayContent;
         for (int i = 1; i <= 7; i++) {
             weekdayContent = "weekday_" + i;
