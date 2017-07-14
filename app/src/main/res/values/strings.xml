@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">MakeAChangeQuizzApp</string>
+
     <string name="weekday_1">Monday</string>
     <string name="weekday_2">Tuesday</string>
     <string name="weekday_3">Wednesday</string>
@@ -7,9 +8,32 @@
     <string name="weekday_5">Friday</string>
     <string name="weekday_6">Saturday</string>
     <string name="weekday_7">Sunday</string>
+
     <string name="hours_option1">2 hours</string>
     <string name="hours_option2">4 hours</string>
     <string name="hours_option3">6 hours</string>
     <string name="hours_option4">8 hours</string>
     <string name="hours_option5">10 hours</string>
+
+    <string name="initial_text">Welcome to the Next Change in your Life</string>
+
+    <string name="intro">Ready to make a change?\\n(Press \"Start\" to begin)</string>
+
+    <string name="question1">What do you want to change in your life?</string>
+    <string name="question2">What skills do you need?</string>
+    <string name="question3">How much time a week are you willing to dedicate?</string>
+    <string name="question4">What days of the week?</string>
+    <string name="question5">At what hour?</string>
+    <string name="question6">How will you know when you\'re ready?</string>
+    <string name="question7">By what date do you think you\'ll be ready if you dedicate this time?</string>
+    <string name="calendar_click">Click on \"Add to Calendar\" to add a reminder to achieve your objective!</string>
+
+    <string name="congrats_text">Congratulations!</string>
+    <string name="question_text">Question </string>
+    <string name="answer_text">answer_</string>
+
+    <string name="no_more_questions_toast">Sorry, there are no more questions available</string>
+    <string name="no_previous_questions_toast">Sorry, there aren\'t any previous questions</string>
+
+
 </resources>

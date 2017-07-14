@@ -23,13 +23,12 @@ public class MainActivity extends AppCompatActivity {
     private int currentQuestion;
     private int previousQuestion;
 
-    private String initialQuestionNumberText = "Welcome to the Next Change in your Life";
+    private String initialQuestionNumberText = getString(R.string.initial_text);
 
-    private String[] questionText = {"Ready to make a change?\\n(Press \"Start\" to begin)", "What do you want to change in your life?",
-            "What skills do you need?", "How much time a week are you willing to dedicate?",
-            "What days of the week?", "At what hour?", "How will you know when you're ready?",
-            "By what date do you think you'll be ready if you dedicate this time?", "Click on \"Add to Calendar\" to add a reminder " +
-            "to achieve your objective!"};
+    private String[] questionText = {getString(R.string.intro), getString(R.string.question1),
+            getString(R.string.question2),getString(R.string.question3),
+            getString(R.string.question4), getString(R.string.question5), getString(R.string.question6),
+            getString(R.string.question7),getString(R.string.calendar_click)};
 
     private TextView questionNumberView;
     private TextView questionTextView;
@@ -51,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void nextQuestion(View view) {
         if (currentQuestion >= questionText.length - 1) {
-            Toast.makeText(this, "Sorry, there are no more questions available", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.no_more_questions_toast), Toast.LENGTH_SHORT).show();
             return;
         }
         currentQuestion += 1;
@@ -69,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void previousQuestion(View view) {
         if (currentQuestion <= 1) {
-            Toast.makeText(this, "Sorry, there aren't any previous questions", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.no_previous_questions_toast), Toast.LENGTH_SHORT).show();
             return;
         }
         currentQuestion -= 1;
@@ -128,9 +127,9 @@ public class MainActivity extends AppCompatActivity {
         String questionNumberText = initialQuestionNumberText;
 
         if (currentQuestion == questionText.length - 1) {
-            questionNumberText = "Congratulations!";
+            questionNumberText = getString(R.string.congrats_text);
         } else if (currentQuestion != 0) {
-            questionNumberText = "Question " + currentQuestion;
+            questionNumberText = getString(R.string.question_text) + currentQuestion;
         }
         return questionNumberText;
     }
@@ -165,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
      * @return returns the id string for the indicated answer field being displayed
      */
     private String getAnswerContent(int question) {
-        String answerId = "answer_" + question;
+        String answerId = getString(R.string.answer_text) + question;
         return answerId;
     }
 
@@ -242,7 +241,7 @@ public class MainActivity extends AppCompatActivity {
         String answer3 = ((RadioButton) findViewById(selectedRadioButton)).getText().toString();
         userAnswers.add(answer3.split("")[0]);
 
-        int answer4;
+        int answer4 = 0;
         String weekdayContent;
         for (int i = 1; i <= 7; i++) {
             weekdayContent = "weekday_" + i;
