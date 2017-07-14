@@ -17,7 +17,7 @@
 
     <string name="initial_text">Welcome to the Next Change in your Life</string>
 
-    <string name="intro">Ready to make a change?\\n(Press \"Start\" to begin)</string>
+    <string name="intro">Ready to make a change?\n(Press \"Start\" to begin)</string>
 
     <string name="question1">What do you want to change in your life?</string>
     <string name="question1_hint">I want to learn programming in Java</string>
@@ -38,7 +38,7 @@
     <string name="calendar_click">Click on \"Add to Calendar\" to add a reminder to achieve your objective!</string>
 
     <string name="congrats_text">Congratulations!</string>
-    <string name="question_text">Question </string>
+    <string name="question_text">Question&#160;</string>
     <string name="answer_text">answer_</string>
 
     <string name="no_more_questions_toast">Sorry, there are no more questions available</string>
